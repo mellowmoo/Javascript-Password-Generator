@@ -35,10 +35,7 @@ function toUpper(x) {
   return x.toUpperCase();
 }
 
-// Function to insert the final password into the textbox to display on the page
-function passInsert(finalPass) {
-  document.getElementById("password").textContent = finalPass;
-}
+
 
 // Generate Password Function
 function generatePassword() {
@@ -124,6 +121,11 @@ function generatePassword() {
   passInsert(finalPass);
   return finalPass;
   
+}
+
+// Function to insert the final password into the textbox to display on the page
+function passInsert(finalPass) {
+  document.getElementById("password").textContent = finalPass;
 }
 
 // TODO: Maybe add a copy to clipboard function
