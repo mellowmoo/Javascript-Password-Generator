@@ -23,10 +23,10 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var finalPass = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = finalPass;
 
 }
 
@@ -34,8 +34,6 @@ function writePassword() {
 function toUpper(x) {
   return x.toUpperCase();
 }
-
-
 
 // Generate Password Function
 function generatePassword() {
@@ -118,14 +116,8 @@ function generatePassword() {
   }
   // converting the password array to a string
   var finalPass = password.join("");
-  passInsert(finalPass);
   return finalPass;
   
-}
-
-// Function to insert the final password into the textbox to display on the page
-function passInsert(finalPass) {
-  document.getElementById("password").textContent = finalPass;
 }
 
 // TODO: Maybe add a copy to clipboard function
