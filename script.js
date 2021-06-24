@@ -12,13 +12,14 @@ var uLowercase;
 character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+// alpha2 variable for use in the loop for uppercase conversion
+alpha2 = alpha.map(toUpper);
 
 // Declaring uChoice Variable to avoid "not defined" errors
 var uChoice;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
 
 // Write password to the #password input
 function writePassword() {
@@ -53,6 +54,28 @@ function generatePassword() {
     uLowercase = confirm("Will the password contain lowercase letters?");
     
   }
+  // Check for 4 negative options
+  if (!uCharacter && !uUppercase && !uLowercase && !uNumber) {
+    uChoice = alert("You must chose at least one option.");
+  }
+  // Checking for all Positive Choices
+  else if (uCharacter && uNumber && uUppercase && uLowercase) {
+    uChoice = character.concat(number, alpha, alpha2);
+  }
+  // Checking for 3 positive Choices
+  else if (uCharacter && uNumber && uUppercase) {
+    uChoice = character.concat(number, alpha2);
+  }
+  else if (uCharacter && uNumber && uLowercase) {
+    uChoice = character.concat(number, alpha);
+  }
+  else if (uCharacter && uLowercase && uUppercase) {
+    uChoice = character.concat(alpha, alpha2);
+  }
+  else if (uNumber && uLowercase && uUppercase) {
+    uChoice = number.concat(alpha, alpha2);
+  }
+
 }
 
 // TODO : else if for 4 negative inputs by the user, if statement that determines the choices made by the user, else if for all positive choices
